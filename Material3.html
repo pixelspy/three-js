@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>three.js Basics</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+    <canvas id="myCanvas"></canvas>
+    <script src="js/three.js"></script>
+    <script>
+
+  //RENDERER
+      var renderer = new THREE.WebGLRenderer({canvas: document.getElementById('myCanvas'), antialias: true,});
+      renderer.setClearColor(0x000000);
+      renderer.setPixelRatio(window.devicePixelRatio);
+      renderer.setSize(window.innerWidth, window.innerHeight);
+
+  //CAMERA
+      var camera = new THREE.PerspectiveCamera(35, window.innerWidth / window.innerHeight, 0.1, 3000);
+      // camera default position: camera.position.set(0, 0, 0);
+
+  // SCENE
+      var scene = new THREE.Scene();
+
+  // LIGHTS
+      var light = new THREE.AmbientLight(0xffffff, 0.5);
+      scene.add(light);
+
+      var light2 = new THREE.PointLight(0xffffff, 0.5);
+      scene.add(light2);
+
+  //MATERIAL
+      var material = new THREE.PointsMaterial({
+
+      });
+
+
+  //GEOMETRY
+      var geometry2 = new THREE.SphereGeometry(150, 50, 50);
+      var mesh2 = new THREE.Points(geometry2, material);
+      mesh2.position.z = -1000;
+      mesh2.position.x = 100;
+      scene.add(mesh2);
+      //
+      // var geometry3 = new THREE.PlaneGeometry(10000, 10000, 100, 100);
+      // var mesh3 = new THREE.Mesh(geometry3, material);
+      // mesh3.rotation.x = -90 * Math.PI / 180;
+      // mesh3.position.y = -100;
+      // scene.add(mesh3);
+
+
+//RENDER LOOP
+      render();
+
+      function render() {
+        mesh2.rotation.x += 0.008;
+        mesh2.rotation.y += 0.008;
+        renderer.render(scene, camera);
+        requestAnimationFrame(render);
+
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>three.js Basics</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <canvas id="myCanvas"></canvas>
+    <script src="js/three.js"></script>
+    <script>
+    var renderer = new THREE.WebGLRenderer({canvas: document.getElementById('myCanvas'), antialias: true,});
+    renderer.setClearColor(0x000000);
+    renderer.setPixelRatio(window.devicePixelRatio);
+    renderer.setSize(window.innerWidth, window.innerHeight);
+
+    var camera = new THREE.PerspectiveCamera(35, window.innerWidth / window.innerHeight, 0.1, 3000);
+    // camera default position: camera.position.set(0, 0, 0);
+
+    // the scene : the container object of our world
+    var scene = new THREE.Scene();
+
+
+    var light = new THREE.AmbientLight(0xffffff, 0.5);
+    // THREE.AmbiantLight(color, intensity);
+    scene.add(light);
+
+    var light2 = new THREE.PointLight(0xffffff, 0.5);
+    scene.add(light2);
+
+
+// 
+    var geometry = new THREE.PlaneGeometry(100, 100);
+
+
+    var material = new THREE.MeshLambertMaterial({color: 0xF3FFE2});
+
+    var mesh = new THREE.Mesh(geometry, material);
+    mesh.position.set(0, 0, -1000);
+    // mesh default position: mesh.position.set(0, 0, 0);
+
+
+    scene.add(mesh);
+
+    requestAnimationFrame(render);
+
+
+    function render() {
+      mesh.rotation.x += 0.01;
+      mesh.rotation.y += 0.01;
+      renderer.render(scene, camera);
+      requestAnimationFrame(render);
+
+    }
+// a render loop for the animation
+
+
+
+    // default color of renderer: green
+
+
+    </script>
+  </body>
+</html>
