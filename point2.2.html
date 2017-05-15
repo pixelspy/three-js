@@ -11,6 +11,7 @@
 		<script src="js/TrackballControls.js"></script>
 
 		<script src="js/CSS3DRenderer.js"></script>
+    <script src="js/josefin.json"></script>
 
 		<script>
       var camera, controls, scene, renderer;
@@ -28,10 +29,10 @@
 
         scene = new THREE.Scene();
 
-        var geometry = new THREE.IcosahedronGeometry(100,0);
+        var geometry = new THREE.DodecahedronGeometry(200,0);
         var material = new THREE.MeshLambertMaterial({
-          color: 0xF3FFE2,
-          emissive: 0xff0000,
+          color: 'rgb(8, 224, 133)',
+          emissive: 'rgb(8, 224, 133)',
           emmissiveIntensity: 0.1,
           transparent: true,
           wireframe: true,
