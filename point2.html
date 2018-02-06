@@ -3,9 +3,35 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+            <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
+            <style>
+            body {
+                  color: #808080;
+                  font-family:Monospace;
+                  font-size:13px;
 
+                  background-color: #ffffff;
+                  margin: 0px;
+                  overflow: hidden;
+            }
+            #info {
+                  position: absolute;
+                  top: 0px; width: 100%;
+                  padding: 5px;
+                  text-align:center;
+                  
+            }
+
+
+            </style>
 	</head>
-	<body>
+	<body style="background-color: black; color: white; font-family: 'Poiret One', cursive; ">
+            <div id="info"><a href="http://www.opera-orchestre-montpellier.fr/" target="_blank" rel="noopener">OONM</a> - logo demo</div>
+            <div class="">
+                  <h2 class="Info">Scroll : Zoom</h2>
+                  <h2 class="Info">Click : Turn</h2>
+            </div>
+
 		<script src="js/three.min.js"></script>
 
 		<script src="js/TrackballControls.js"></script>
@@ -31,7 +57,7 @@
         var geometry = new THREE.IcosahedronGeometry(100,0);
         var material = new THREE.MeshLambertMaterial({
           color: 0xF3FFE2,
-          emissive: 0xff0000,
+          emissive: 'blue',
           emmissiveIntensity: 0.1,
           transparent: true,
           wireframe: true,
